@@ -1,39 +1,20 @@
+const userContainer = document.getElementById("displayUser");
+
 let arrayOfUsers = [];
+
+const getUsers = (numOfUsers) => {
+  fetch(`https://randomuser.me/api/?results=${numOfUsers}`)
+    .then((res) => res.json())
+    .then((data) => {
+      const user = data.results;
+      arrayOfUsers.push(user);
+      console.log(arrayOfUsers);
+      populateUsers();
+    });
+};
+
+const populateUsers = () => {};
+
 window.onload = function () {
-  getUsers();
+  getUsers(15);
 };
-
-const getUsers = () => {
-  fetch("https://randomuser.me/api/")
-    .then((res) => res.json())
-    .then((users) => (arrayOfUsers = users));
-};
-
-const consoleUsers = () => {
-  console.log(arrayOfUsers);
-};
-
-const populateUsers = () => {
-  const displayUser = document.getElementById("displayUser");
-  displayUser.innerHTML = "";
-  arrayOfUsers.results.forEach((user) => {
-    const li = document.createElement("li");
-    const text = document.createTextNode(
-      `${user.name.first} ${user.name.last} - ${user.email}`
-    );
-    li.appendChild(text);
-    displayUser.appendChild(li);
-  });
-};
-let btn = document.getElementById("btnClick");
-let img = document.getElementById("image");
-
-btn.addEventListener("click", function () {
-  fetch("https://randomuser.me/api/")
-    .then((res) => res.json())
-    .then((result) => {
-      console.log(result);
-      img.src = result.message;
-    })
-    .catch((err) => console.log(err));
-});
