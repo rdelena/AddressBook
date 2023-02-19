@@ -38,6 +38,49 @@ const populateUsers = () => {
     );
     li.appendChild(nameText);
 
+    // Creates a button element with the class of "addInfo"
+    const infoButton = document.createElement("button");
+    infoButton.classList.add("addInfo");
+    infoButton.innerText = `Additional Info`;
+
+    // Button Event when clicked will create additional text
+    infoButton.addEventListener("click", () => {
+      // creates a <p> where user phone info will display
+      const userPhone = document.createElement("p");
+      li.appendChild(userPhone);
+      const phoneText = document.createTextNode(
+        `Home Phone:${user.phone} | Cellphone: ${user.cell}`
+      );
+      li.appendChild(phoneText);
+
+      // creates a <p> where user address info will display
+      const userAddress = document.createElement("p");
+      li.appendChild(userAddress);
+      const addressText = document.createTextNode(
+        `Address:${user.location.street.number} ${user.location.street.name}, ${user.location.city}, ${user.location.state}, ${user.location.country} ${user.location.postcode} `
+      );
+      li.appendChild(addressText);
+
+      // display email
+      const userEmail = document.createElement("p");
+      li.appendChild(userEmail);
+      const emailText = document.createTextNode(`Email:${user.email}`);
+      li.appendChild(emailText);
+
+      // display DOB, Age, & Gender
+      const userDOB = document.createElement("p");
+      li.appendChild(userDOB);
+      const dobText = document.createTextNode(
+        `DOB:${user.dob.date} | Age: ${user.dob.age} | Gender: ${user.gender}`
+      );
+      li.appendChild(dobText);
+
+      // used to hide button or else once clicked will duplicate text.
+      infoButton.style.display = "none";
+    });
+
+    userContainer.appendChild(infoButton);
+
     // appends the <li> to the user container. Allowing it to be seen in the DOM
     userContainer.appendChild(li);
   });
