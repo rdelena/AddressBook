@@ -27,11 +27,14 @@ const populateUsers = () => {
 
     // creates an <img> tag in the <li> and uses the user picture from the array & appends to li.
     const userImg = document.createElement("img");
+    userImg.classList.add("image");
     userImg.src = user.picture.large;
     li.appendChild(userImg);
 
     // creates a <p> tag in the <li> where it displays the user title, first, & last name
     const name = document.createElement("p");
+
+    name.classList.add("username");
     li.appendChild(name);
     const nameText = document.createTextNode(
       `${user.name.title} ${user.name.first} ${user.name.last}`
@@ -57,14 +60,14 @@ const populateUsers = () => {
       const userAddress = document.createElement("p");
       li.appendChild(userAddress);
       const addressText = document.createTextNode(
-        `Address:${user.location.street.number} ${user.location.street.name}, ${user.location.city}, ${user.location.state}, ${user.location.country} ${user.location.postcode} `
+        `Address: ${user.location.street.number} ${user.location.street.name}, ${user.location.city}, ${user.location.state}, ${user.location.country} ${user.location.postcode} `
       );
       li.appendChild(addressText);
 
       // display email
       const userEmail = document.createElement("p");
       li.appendChild(userEmail);
-      const emailText = document.createTextNode(`Email:${user.email}`);
+      const emailText = document.createTextNode(`Email: ${user.email}`);
       li.appendChild(emailText);
 
       // display DOB, Age, & Gender
@@ -79,7 +82,7 @@ const populateUsers = () => {
       infoButton.style.display = "none";
     });
 
-    userContainer.appendChild(infoButton);
+    li.appendChild(infoButton);
 
     // appends the <li> to the user container. Allowing it to be seen in the DOM
     userContainer.appendChild(li);
