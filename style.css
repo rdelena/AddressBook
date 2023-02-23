@@ -4,6 +4,48 @@ body {
   background-color: beige;
 }
 h1 {
+    text-align: center;
+  }
+
+  li {
+    display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+
+  }
+
+  .displayUser {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+.addInfo {
+  margin: 1px;
+  width: 90px;
+  height: 40px;
+  border: none;
+  color: black;
+  text-align: center;
+  font-size: 12px;
+  
+}
+
+/*
+.image {
+  border-radius: 10px;
+}
+
+.username {
+  font-size: 10px;
+} */
+
+.container {
+  background-color: #beige;
+
+}
+
   text-align: center;
 }
 h3 {
