@@ -27,11 +27,14 @@ const populateUsers = () => {
 
     // creates an <img> tag in the <li> and uses the user picture from the array & appends to li.
     const userImg = document.createElement("img");
+    userImg.classList.add("image");
     userImg.src = user.picture.large;
     li.appendChild(userImg);
 
     // creates a <p> tag in the <li> where it displays the user title, first, & last name
     const name = document.createElement("p");
+
+    name.classList.add("username")
     li.appendChild(name);
     const nameText = document.createTextNode(
       `${user.name.title} ${user.name.first} ${user.name.last}`
@@ -90,3 +93,4 @@ const populateUsers = () => {
 window.onload = function () {
   getUsers(15);
 };
+
