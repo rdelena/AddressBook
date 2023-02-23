@@ -16,7 +16,6 @@ h1 {
     gap: 1rem;
   }
 
-
 .addInfo {
   margin: 1px;
   width: 90px;
@@ -38,9 +37,9 @@ h1 {
 } */
 
 .container {
-  background-color: beige;
+  background-color: #beige;
 
 }
 
-
-
+  text-align: center;
+}

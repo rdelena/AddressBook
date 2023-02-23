@@ -33,6 +33,7 @@ const populateUsers = () => {
 
     // creates a <p> tag in the <li> where it displays the user title, first, & last name
     const name = document.createElement("p");
+
     name.classList.add("username")
     li.appendChild(name);
     const nameText = document.createTextNode(
@@ -92,3 +93,4 @@ const populateUsers = () => {
 window.onload = function () {
   getUsers(15);
 };
+
